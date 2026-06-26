@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Personas - React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/personas.css">
+
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Registro de Personas (React)</h1>
+    <a href="index.html">← Volver al inicio</a>
+  </header>
+
+  <main>
+    <div id="root"></div>
+  </main>
+
+  <script type="text/babel" data-presets="env,react">
+
+    function calcularIMC(peso, altura) {
+      const imc = peso / (altura * altura);
+      return imc.toFixed(2);
+    }
+
+    function capitalizar(texto) {
+      if (texto.length === 0) return texto;
+      return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
+    }
+
+    function App() {
+      const [personas, setPersonas] = React.useState([]);
+      const [nombre, setNombre] = React.useState("");
+      const [apellido, setApellido] = React.useState("");
+      const [edad, setEdad] = React.useState("");
+      const [altura, setAltura] = React.useState("");
+      const [peso, setPeso] = React.useState("");
+
+      function agregarPersona(evento) {
+        evento.preventDefault();
+
+        const alturaNum = parseFloat(altura);
+        const pesoNum = parseFloat(peso);
+        const imc = calcularIMC(pesoNum, alturaNum);
+
+        const nuevaPersona = {
+          id: Date.now(),
+          nombre: capitalizar(nombre),
+          apellido: capitalizar(apellido),
+          edad: edad,
+          altura: alturaNum,
+          peso: pesoNum,
+          imc: imc
+        };
+
+        setPersonas([...personas, nuevaPersona]);
+
+        setNombre("");
+        setApellido("");
+        setEdad("");
+        setAltura("");
+        setPeso("");
+      }
+
+      function eliminarPersona(id) {
+        setPersonas(personas.filter(function (persona) {
+          return persona.id !== id;
+        }));
+      }
+
+      return (
+        <div>
+          <form id="form-personas" onSubmit={agregarPersona}>
+            <div className="campo">
+              <label>Nombre:</label>
+              <input
+                type="text"
+                value={nombre}
+                onChange={function (e) { setNombre(e.target.value); }}
+                required
+              />
+            </div>
+
+            <div className="campo">
+              <label>Apellido:</label>
+              <input
+                type="text"
+                value={apellido}
+                onChange={function (e) { setApellido(e.target.value); }}
+                required
+              />
+            </div>
+
+            <div className="campo">
+              <label>Edad:</label>
+              <input
+                type="number"
+                min="0"
+                value={edad}
+                onChange={function (e) { setEdad(e.target.value); }}
+                required
+              />
+            </div>
+
+            <div className="campo">
+              <label>Altura (m):</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                placeholder="Ej: 1.70"
+                value={altura}
+                onChange={function (e) { setAltura(e.target.value); }}
+                required
+              />
+            </div>
+
+            <div className="campo">
+              <label>Peso (kg):</label>
+              <input
+                type="number"
+                step="0.1"
+                min="0"
+                placeholder="Ej: 65"
+                value={peso}
+                onChange={function (e) { setPeso(e.target.value); }}
+                required
+              />
+            </div>
+
+            <button type="submit">Agregar persona</button>
+          </form>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Altura (m)</th>
+                <th>Peso (kg)</th>
+                <th>IMC</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {personas.map(function (persona) {
+                return (
+                  <tr key={persona.id}>
+                    <td>{persona.nombre}</td>
+                    <td>{persona.apellido}</td>
+                    <td>{persona.edad}</td>
+                    <td>{persona.altura}</td>
+                    <td>{persona.peso}</td>
+                    <td>{persona.imc}</td>
+                    <td>
+                      <button
+                        className="btn-eliminar"
+                        onClick={function () { eliminarPersona(persona.id); }}
+                      >
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+
+    const raiz = ReactDOM.createRoot(document.getElementById("root"));
+    raiz.render(<App />);
+
+  </script>
+
+</body>
+</html>
