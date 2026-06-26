@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Personas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/personas.css">
+</head>
+<body>
+
+  <header>
+    <h1>Registro de Personas</h1>
+    <a href="index.html">← Volver al inicio</a>
+  </header>
+
+  <main>
+    <form id="form-personas">
+      <div class="campo">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+      </div>
+
+      <div class="campo">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" required>
+      </div>
+
+      <div class="campo">
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" min="0" required>
+      </div>
+
+      <div class="campo">
+        <label for="altura">Altura (m):</label>
+        <input type="number" id="altura" step="0.01" min="0" placeholder="Ej: 1.70" required>
+      </div>
+
+      <div class="campo">
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" step="0.1" min="0" placeholder="Ej: 65" required>
+      </div>
+
+      <button type="submit">Agregar persona</button>
+    </form>
+
+    <table id="tabla-personas">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Altura (m)</th>
+          <th>Peso (kg)</th>
+          <th>IMC</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpo-tabla">
+        <!-- Las filas se agregan dinámicamente con JavaScript -->
+      </tbody>
+    </table>
+  </main>
+
+  <script src="js/personas.js"></script>
+</body>
+</html>
