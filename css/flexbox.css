@@ -1,0 +1,69 @@
+#controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+#controles select,
+#controles button {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 2px solid #e07a5f;
+  cursor: pointer;
+  background-color: white;
+}
+
+#controles button {
+  background-color: #e07a5f;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+#controles button:hover {
+  background-color: #c75c43;
+  transform: scale(1.05);
+}
+
+#contenedor-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.tarjeta {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  padding: 18px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-top: 5px solid #81b29a;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta h3 {
+  color: #e07a5f;
+  font-size: 1.2rem;
+}
+
+.tarjeta .categoria {
+  font-size: 0.8rem;
+  color: #81b29a;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

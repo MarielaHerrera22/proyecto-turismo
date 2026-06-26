@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  background-color: #fef6e4;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #e07a5f, #f2cc8f);
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
