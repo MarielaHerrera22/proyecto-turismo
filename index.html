@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Turismo - La Rioja</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    #menu-principal {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 50px 20px;
+    }
+
+    .tarjeta-menu {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      padding: 25px;
+      width: 250px;
+      text-decoration: none;
+      color: #333;
+      text-align: center;
+      border-top: 5px solid #e07a5f;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tarjeta-menu:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .tarjeta-menu h2 {
+      color: #e07a5f;
+      margin-bottom: 10px;
+    }
+
+    .tarjeta-menu p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Proyecto Turismo - La Rioja</h1>
+    <p>Trabajo Práctico N° 3 — Flexbox, formularios dinámicos y React</p>
+  </header>
+
+  <main id="menu-principal">
+    <a href="flexbox.html" class="tarjeta-menu">
+      <h2>Ejercicio 1</h2>
+      <p>Lugares turísticos de La Rioja con Flexbox</p>
+    </a>
+
+    <a href="personas.html" class="tarjeta-menu">
+      <h2>Ejercicio 2</h2>
+      <p>Formulario y tabla de personas con JavaScript</p>
+    </a>
+
+    <a href="react.html" class="tarjeta-menu">
+      <h2>Ejercicio 3</h2>
+      <p>Formulario y tabla de personas con React</p>
+    </a>
+  </main>
+
+</body>
+</html>
