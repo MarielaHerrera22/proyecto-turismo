@@ -24,10 +24,13 @@
    <footer>
     <p>Trabajo Práctico N° 3 — Mariela Herrera — TUP, FRLR 2026</p>
   </footer>
-  
+
   <script type="text/babel" data-presets="env,react">
 
     function calcularIMC(peso, altura) {
+      if (altura <= 0 || peso <= 0) {
+        return "N/D";
+      }
       const imc = peso / (altura * altura);
       return imc.toFixed(2);
     }

@@ -5,12 +5,13 @@ const cuerpoTabla = document.getElementById("cuerpo-tabla");
 // Array que guarda las personas cargadas (opcional pero útil para tener un registro)
 const personas = [];
 
-// Función que calcula el IMC a partir de peso (kg) y altura (m)
 function calcularIMC(peso, altura) {
+  if (altura <= 0 || peso <= 0) {
+    return "N/D"; // No Disponible, evita división por cero o valores inválidos
+  }
   const imc = peso / (altura * altura);
-  return imc.toFixed(2); // redondeamos a 2 decimales
+  return imc.toFixed(2);
 }
-
 // Función que crea una fila <tr> con los datos de una persona
 function crearFila(persona) {
   const fila = document.createElement("tr");
