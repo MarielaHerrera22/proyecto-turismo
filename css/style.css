@@ -41,3 +41,25 @@ footer {
   font-size: 0.85rem;
   margin-top: 30px;
 }
+/* Responsividad para pantallas chicas (celulares) */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  #form-personas {
+    flex-direction: column;
+  }
+
+  .campo {
+    width: 100%;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 8px 6px;
+  }
+}
